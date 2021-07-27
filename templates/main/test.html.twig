@@ -1,19 +1,14 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>test</title>
-</head>
-<body>
+{% extends 'base.html.twig' %}
+
+{% block body %}
     {#
         Ceci est un commentaire twig qui
         ne s'affiche pas dans le navigateur
     #}
 
     <h1>Page de test</h1>
+
+    <div>{{ "now"|date('Y') }}</div>
 
     {{"Petit texte pour tester"}}
 
@@ -29,6 +24,7 @@
         <p>Pas une ville répertoriée</p>
     {% endif %}
 
+    {# Utilisation d'une boucle sur un tableau #}
     {% set vegetables = ["Carotte", "Tomate", "Patate"] %}
 
     <h1>Légumes :</h1>
@@ -40,9 +36,11 @@
 
     <p>Ingrédient à l'honneur : {{ vegetables[2] }}</p>
 
+    {# Utilisation d'une boucle sur un objet #}
+
     {%
         set user = {
-            'name' : 'jojo',
+            'name' : 'Maxime',
             'age' : 10,
             'isactive': true
         }
@@ -56,5 +54,22 @@
         {% endfor %}
     </dl>
 
-</body>
-</html>
+    {# Boucler sur un tableau avec plusieurs couleurs #}
+    <h1>Couleurs : </h1>
+    {% set colors = ["cornflowerblue", "brown", "blue", "green", "red"] %}
+    {% for color in colors %}
+        <div>{{ loop.index }}</div> {# affiche le n°de passage dans la bouce passage dans la boucle #}
+        <div>{{ loop.last }}</div> {# check si on est au dernier passage dans la boucle #}
+        <div style="color: {{ color }}">{{ color }}</div>
+    {% endfor %}
+
+    {# Application de filtres (pipe) #}
+    <h2> {{ user.name|upper }} </h2>
+    <p>Nombre de lettres dnas le nom : {{ user.name|length }}</p>
+
+    <h2>Affichage de toutes les couleurs</h2>
+    <div>{{ colors|join(' / ') }}</div>
+
+{% endblock %}
+
+{% block title %} {{ parent() }} | Page de test {% endblock %}
