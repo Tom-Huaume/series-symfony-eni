@@ -17,17 +17,20 @@
     <link rel="icon" href="{{ asset('img/favicon.ico') }}">
 </head>
 <body>
-    <header>
-        <h1><a href="{{ path('main_home') }}"><img src="{{ asset('img/logo.svg') }}" alt="Series!"></a></h1>
-        {% include('inc/nav.html.twig') %}
-    </header>
-    <main>
-        {% block body %}{% endblock %}
-    </main>
-    <footer>
-        {#Pied de page#}
-        {% include('inc/nav.html.twig') %}
-        <div>&copy; {{ "now"|date("Y") }} Series </div>
-    </footer>
+    <div class="container">
+        <header>
+            <h1><a href="{{ path('main_home') }}"><img src="{{ asset('img/logo.svg') }}" alt="Series!"></a></h1>
+            {% include('inc/nav.html.twig') %}
+        </header>
+        <main>
+            {% block body %}{% endblock %}
+        </main>
+        <footer>
+
+            {% include('inc/nav.html.twig') %}
+            <div>&copy; {{ "now"|date("Y") }} Series </div>
+        </footer>
+    </div>
+
 </body>
 </html>
