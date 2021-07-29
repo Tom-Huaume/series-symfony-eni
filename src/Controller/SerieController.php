@@ -11,6 +11,8 @@ class SerieController extends AbstractController
     #[Route('/series', name: 'serie_list')]
     public function list(): Response
     {
+        //todo: aller chercher les séries en bdd
+
         return $this->render('serie/list.html.twig', [
 
         ]);
