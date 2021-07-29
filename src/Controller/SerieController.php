@@ -6,9 +6,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * @Route("/series", name="serie_")
+ */
 class SerieController extends AbstractController
 {
-    #[Route('/series', name: 'serie_list')]
+    /**
+     * @Route("", name="list")
+     */
     public function list(): Response
     {
         //todo: aller chercher les séries en bdd
@@ -17,4 +22,23 @@ class SerieController extends AbstractController
 
         ]);
     }
+
+    /**
+     * @Route("/details/{id}", name="details")
+     */
+    public function details(int $id): Response
+    {
+        //todo: aller chercher la série en bdd
+
+        return $this->render('serie/details.html.twig');
+    }
+
+    /**
+     * @Route("/create", name="create")
+     */
+    public function create(): Response
+    {
+        return $this->render('serie/create.html.twig');
+    }
+
 }
