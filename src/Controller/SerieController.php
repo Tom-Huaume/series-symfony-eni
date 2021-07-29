@@ -8,11 +8,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class SerieController extends AbstractController
 {
-    #[Route('/serie', name: 'serie')]
-    public function index(): Response
+    #[Route('/series', name: 'serie_list')]
+    public function list(): Response
     {
-        return $this->render('serie/index.html.twig', [
-            'controller_name' => 'SerieController',
+        return $this->render('serie/list.html.twig', [
+
         ]);
     }
 }
