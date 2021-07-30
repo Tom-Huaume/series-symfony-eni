@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @Route("/series", name="serie_")
  */
-class SerieController extends AbstractController
+class SerieControllers extends AbstractController
 {
     /**
      * @Route("", name="list")
