@@ -19,9 +19,7 @@ class SerieController extends AbstractController
     {
         //todo: aller chercher les séries en bdd
 
-        return $this->render('serie/list.html.twig', [
-
-        ]);
+        return $this->render('serie/list.html.twig');
     }
 
     /**
@@ -43,4 +41,11 @@ class SerieController extends AbstractController
         return $this->render('serie/create.html.twig');
     }
 
+    /**
+     * @Route("/demo", name="em-demo")
+     */
+    public function demo(): Response
+    {
+        return $this->render('serie/create.html.twig');
+    }
 }
