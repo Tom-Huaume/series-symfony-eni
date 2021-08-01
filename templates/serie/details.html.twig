@@ -1,12 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-todo: afficher titre de la série dans l'onglet | {{ parent() }}
+{{serie.name}} | {{ parent() }}
 {% endblock %}
 
 {% block body %}
-    <h2>todo: Le titre de la série</h2>
+    <h2>{{serie.name}}</h2>
 
-    {# todo: afficher toutes les infos sur la série #}
+    <div>{{ serie.overview }}</div>
+    <br>
+    <div>{{ serie.vote }}</div>
 {% endblock %}
 
