@@ -22,9 +22,11 @@ class SerieController extends AbstractController
      */
     public function list(SerieRepository $serieRepository): Response
     {
-        $series = $serieRepository->findBy([], ['popularity' => 'DESC', 'vote' => 'DESC'], 30);
+        //Méthode avec SQL (Source SerieRepository.php ligne 25)
+        $series = $serieRepository->findBestSeries();
 
-
+        //Méthode sans SQL
+        //$series = $serieRepository->findBy([], ['popularity' => 'DESC', 'vote' => 'DESC'], 30);
 
         return $this->render('serie/list.html.twig', [
             "series" => $series
